@@ -1,0 +1,122 @@
+<div class="container">
+
+    <form [formGroup]="login" (ngSubmit)="register(login.value)" class="border">
+        <div class="row g-0">
+            <div class=" header col text-center p-2 mb-3  bg-light">
+                <h1 fs-2>Create a Client</h1>
+                <h3>Please fill in this form to create a client</h3>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+
+                <label for="first-name" class="form-label">User Name</label>
+                <input type="text" class="form-control" name="name" id="fname" placeholder="Name"
+                    formControlName="name">
+                <div class="form-text text-danger"
+                    *ngIf="name.errors?.['required'] && (name.touched || name.dirty || formSubmitted)">
+                    name can not be empty
+                </div>
+                <div class="form-text text-danger"
+                    *ngIf="name.errors?.['minlength'] && (name.touched || name.dirty || formSubmitted)">
+                    Length can not be less than 4
+                </div>
+                <div class="form-text text-danger"
+                    *ngIf="name.errors?.['pattern'] && (name.touched || name.dirty || formSubmitted)">
+                    Invalid character
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="first-name" class="form-label">Email</label>
+                <input type="email" class="form-control" id="Email" placeholder="Email"
+                    formControlName="Email">
+                <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && (Email.touched || formSubmitted || Email.dirty)">
+                    Email can not be empty
+                </div>
+                <div class="form-text text-danger" *ngIf="Email.errors?.['email'] && (Email.touched || formSubmitted || Email.dirty)">
+                Please enter a valid email address
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="Address" class="form-label">Address</label>
+                <input type="text" class="form-control" name="Address" id="email" placeholder="Address"
+                    formControlName="Address">
+                <div class="form-text text-danger" *ngIf="Address.errors?.['required'] && (Address.touched || formSubmitted)">
+                    Address can not be empty
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="mobile" class="form-label">Mobile Number</label>
+                <input type="text" class="form-control" name="mobno" id="mobno" placeholder="Enter Mob no"
+                    formControlName="Mobno">
+                <div class="form-text text-danger" *ngIf="mobno.errors?.['required'] && (mobno.touched || formSubmitted)">
+                    Mobile can not be empty
+                </div>
+                <div class="form-text text-danger" *ngIf="mobno.errors?.['pattern'] && (mobno.touched || formSubmitted)">
+                    Please enter a valid mobile number (only digits are allowed)
+                </div>
+            </div>
+            <div class="col ps-3">
+                <div class="m-1">Gender</div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" name="Gender" id="male" value="M" formControlName="Gender">
+                    <label for="male" class="form-check-label">Male</label>
+                    <div class="form-text text-danger" *ngIf=" gender.errors?.['required'] && (gender.touched || formSubmitted)">
+                        Gender can not be empty
+                    </div>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" name="Gender" id="fmale" value="F" formControlName="Gender">
+                    <label for="male" class="form-check-label">Female</label>
+                    <div class="form-text text-danger" *ngIf="gender.errors?.['required'] && (gender.touched || formSubmitted)">
+                        Gender can not be empty
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="Password" class="form-lable">Password</label>
+                <input type="password" name="pwd" id="pwd" formControlName="pwd" class="form-control"
+                    formControlName="pwd">
+                <div class="form-text text-danger" *ngIf="pwd.errors?.['required'] && (pwd.touched || pwd.dirty || formSubmitted)">
+                    password can not be empty
+                </div>
+                <div class="form-text text-danger"
+                    *ngIf=" pwd.errors?.['minlength'] || pwd.errors?.['maxlength'] && (pwd.touched || pwd.dirty || formSubmitted)">
+                    password should be atleast 8 and max 15 characters long
+                </div>
+
+            </div>
+            <div class="col">
+                <label for="Confirm Password" class="form-lable">Confirm Password</label>
+                <input type="password" name="rpwd" id="rpwd" formControlName="rpwd" class="form-control"
+                    formControlName="rpwd">
+
+                <div class="form-text text-danger" [ngStyle]="{'display': repeatpass}">
+                    repeat password is not matching
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 offset-3">
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary mt-3" >Register</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
