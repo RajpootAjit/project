@@ -1,0 +1,42 @@
+<form [formGroup]="login" (ngSubmit)="submitClient()" action="" class="container">
+    <div class="main">
+        <div>
+
+            <h1>Creating a Meeting Schedule</h1>
+
+            <hr width="100%" size="10">
+        </div>
+        <div class="row input1">
+            <div class="col">
+                <label for="meeting">Meeting Topic <span>*</span></label><br>
+                <input type="text" id="meeting" formControlName="meeting">
+            </div>
+            <div class="form-text text-danger"  >
+                 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="people">Number of People <span>*</span></label><br>
+                <input type="text" id="people" formControlName="people">
+            </div>
+            <div class="form-text text-danger"  >
+                
+          </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="date">Select a Date:</label>
+                <input type="date" id="date" formControlName="date" name="date">
+                
+
+            </div>
+            <div class="form-text text-danger" >
+                
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+        
+    </div>
+
+</form>

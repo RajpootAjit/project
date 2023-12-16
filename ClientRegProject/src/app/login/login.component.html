@@ -1,0 +1,22 @@
+<form class="login" [formGroup]="login" (ngSubmit)="sigin(login.value)">
+    
+    <div class="main">
+        <h1>Welcome to login session</h1>
+        <input type="text" placeholder="Username" name="name" formControlName="name">
+        <div class="form-text text-danger" *ngIf="name.errors?.['required'] && (name.touched|| loginsubmite)">
+            Please enter username
+        </div>
+        <br>
+        <input type="password" placeholder="Password" name="password" formControlName="password">
+        <div class="form-text text-danger" *ngIf="password.errors?.['required'] && (password.touched || loginsubmite)">
+            Please enter password
+        </div>
+        <br>
+        <button class="btn btn-primary">Login</button>
+        <button (click)="signUp()" class="btn btn-primary Signup">Signup</button>
+    </div>
+    
+
+
+</form>
+

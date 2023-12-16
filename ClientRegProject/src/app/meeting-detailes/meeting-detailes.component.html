@@ -1,0 +1,29 @@
+<div class="container">
+
+    <h1>Meetings details</h1>
+    
+    
+<table class="main table  table-hover" style="border: 2px solid black;">
+    
+    <thead>
+        <tr class="heading">
+            <th>Meeting</th>
+            <th>People</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let meeting of meetings">
+            <td>{{meeting.meeting}}</td>
+            <td>{{meeting.people}}</td>
+            <td>{{meeting.date}}</td>
+        </tr>
+    </tbody>
+</table>
+ 
+<button (click)="addMore()" class="btn btn-primary addMore">Add More</button>
+  <button (click)="logout()" class="btn btn-primary logout">Logout</button>
+  
+ 
+</div>
+
